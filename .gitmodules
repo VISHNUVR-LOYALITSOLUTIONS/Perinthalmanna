@@ -1,0 +1,4 @@
+[submodule "VISHNUVR-LOYALITSOLUTIONS/perinthalmanna"]
+	path = VISHNUVR-LOYALITSOLUTIONS/perinthalmanna
+	url = git@github.com:VISHNUVR-LOYALITSOLUTIONS/perinthalmanna.git
+	branch = Production

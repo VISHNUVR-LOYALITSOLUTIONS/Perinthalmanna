@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "hide_document_download",
+    'name': "work_attendance_in_timesheet",
 
     'summary': """
-       Hide the Download in document""",
+        Short (1 phrase/line) summary of the module's purpose, used as
+        subtitle on modules listing or apps.openerp.com""",
 
     'description': """
-       Hide the Download in document
+        Long description of module's purpose
     """,
 
-    'author': "Loyal IT Solutions Pvt. Ltd.",
-    'website': "http://www.loyalitsolutions.com",
+    'author': "My Company",
+    'website': "http://www.yourcompany.com",
+
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
@@ -18,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','web','documents'],
+    'depends': ['base','hr','hr_timesheet','hr_work_entry','timesheet_grid',],
 
     # always loaded
     'data': [

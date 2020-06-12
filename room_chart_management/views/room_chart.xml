@@ -10,6 +10,11 @@
                     <field name="occupant_name" />
                     <field name="occupy_type"/>
                     <field name="living_type"/>
+                      <field name="tmp_chart_room"/>
+                     <field name="tmp_chart_floor"/>
+                     <field name="tmp_chart_flat"/>
+                     <field name="tmp_chart_status"/>
+
                 </tree>
             </field>
         </record>
@@ -47,6 +52,11 @@
                             <field name="living_type"/>
                         </group>
                     </group>
+
+                     <field name="tmp_chart_room" invisible="1"/>
+                     <field name="tmp_chart_floor" invisible="1"/>
+                     <field name="tmp_chart_flat" invisible="1"/>
+                     <field name="tmp_chart_status" invisible="1"/>
 
 
                     <notebook>
@@ -87,6 +97,54 @@
 
 
 
+      <record id="room_chart_checkout_graph" model="ir.ui.view">
+          <field name="name">room.chart.graph</field>
+
+    <field name="model">room.chart</field>
+    <field name="arch" type="xml">
+      <graph>
+        <field name="occupant_name" />
+                    <field name="occupy_type"/>
+                    <field name="living_type"/>
+                     <field name="tmp_chart_room"/>
+                     <field name="tmp_chart_floor"/>
+                     <field name="tmp_chart_flat"/>
+                     <field name="tmp_chart_status"/>
+      </graph>
+
+    </field>
+  </record>
+
+
+
+       <record model="ir.ui.view" id="view_report_room_chart_kanban">
+    <field name="name">room.chart.kanban</field>
+    <field name="model">room.chart</field>
+    <field name="type">kanban</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <templates>
+            <t t-name="kanban-box">
+                <div class="oe_product_vignette oe_kanban_global_click">
+                        <div class="oe_product_desc">
+                            <h3><field name="occupant_name" /></h3>
+                            <h4>
+                                <field name="occupy_type"/><br/>
+                                <field name="living_type"/>
+                            </h4>
+                            <ul>
+                               <field name="tmp_chart_room"/><br/>
+                             <field name="tmp_chart_floor"/><br/>
+                             <field name="tmp_chart_flat"/><br/>
+                             <field name="tmp_chart_status"/>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
 
 
 
@@ -96,7 +154,7 @@
     <record model="ir.actions.act_window" id="roomchart_setup_action_window">
       <field name="name">Room Chart</field>
       <field name="res_model">room.chart</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,kanban,graph</field>
          <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Create
                 </p>

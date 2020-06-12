@@ -79,6 +79,14 @@ class Room_chart_management(models.Model):
     occupy_type = fields.Many2one('room.occupy',string="Occupy Type")
     living_type = fields.Many2one('room.type', string="Living Type")
 
+    tmp_chart_room = fields.Many2one('room.room', string="Room", store=True,related='order_line.chart_room')
+    tmp_chart_floor = fields.Many2one('room.floor', string="Floor", store=True,related='order_line.chart_floor')
+    tmp_chart_flat = fields.Many2one('room.flat', string="Flat", store=True,related='order_line.chart_flat')
+    tmp_chart_status = fields.Selection([
+        ('vacant', 'Vacant'),
+        ('occupy', 'Occupy'),
+    ], default="vacant", store=True, related='order_line.chart_status')
+
     @api.model
     def create(self, vals):
         vals['name'] = self.env['ir.sequence'].next_by_code('room.chart') or '/'
